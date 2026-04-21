@@ -1,0 +1,22 @@
+services:
+  api:
+    build:
+      context: ./astro-kovesh-api/api
+      dockerfile: Dockerfile
+    container_name: astro-kovesh-api
+    env_file:
+      - ./astro-kovesh-api/api/.env
+    restart: unless-stopped
+    ports:
+      - "8010:8010"
+
+  web:
+    build:
+      context: ./astro-kovesh-web
+      dockerfile: Dockerfile
+    container_name: astro-kovesh-web
+    env_file:
+      - ./astro-kovesh-web/.env
+    restart: unless-stopped
+    ports:
+      - "5173:80"

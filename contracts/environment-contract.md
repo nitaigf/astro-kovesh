@@ -4,13 +4,15 @@
 
 Variaveis minimas esperadas (exemplos):
 
-- `PORT` (default local: `8000`)
-- `HOST` (default local: `0.0.0.0`)
+- `APP_PORT` (default local: `8010`)
+- `APP_HOST` (default local: `0.0.0.0`)
+- `FRONTEND_URL`
+- `CORS_ORIGINS`
 - variaveis de provider externo (quando aplicavel)
 
 Exposicao local esperada:
 
-- API em `http://localhost:8000`
+- API em `http://localhost:8010`
 
 ## Web
 

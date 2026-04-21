@@ -7,13 +7,17 @@
 
 ## Endpoint principal
 
-### `GET /v1/chart`
+### `POST /v1/chart`
 
-Parâmetros esperados:
+Body JSON esperado:
 
-- dados de nascimento (data/hora)
-- localizacao (cidade/pais) ou coordenadas
-- timezone derivada/fornecida conforme regra da API
+- `date` em formato ISO (`YYYY-MM-DD`)
+- `time` em formato `HH:mm` ou `HH:mm:ss`
+- `location.query` para busca textual
+- ou `location.lat` + `location.lng` para coordenadas
+- `timezone` opcional
+- `zodiac_mode`: `tropical` ou `sidereal`
+- `house_system`: `placidus`, `koch` ou `whole_sign`
 
 Resposta de sucesso:
 
@@ -34,11 +38,21 @@ Formato minimo esperado:
 
 Codigos relevantes para o frontend:
 
-- `400`: entrada invalida
 - `422`: validacao semantica/estrutura
+- `404`: localizacao nao encontrada
 - `429`: limite de requisicoes
 - `500`: erro interno inesperado
 - `503` + `detail.code=astrology_engine_unavailable`: engine astrológica indisponivel
+
+Codigos `detail.code` relevantes:
+
+- `invalid_datetime`
+- `geocoding_failed`
+- `geocoding_quota_exceeded`
+- `timezone_resolution_failed`
+- `external_service_failed`
+- `rate_limit_exceeded`
+- `astrology_engine_unavailable`
 
 ## Regras de evolucao
 

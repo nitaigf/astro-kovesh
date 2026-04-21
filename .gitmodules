@@ -1,0 +1,8 @@
+[submodule "astro-kovesh-api"]
+	path = astro-kovesh-api
+	url = git@github.com:nitaigf/astro-kovesh-api.git
+	branch = .
+[submodule "astro-kovesh-web"]
+	path = astro-kovesh-web
+	url = git@github.com:nitaigf/astro-kovesh-web.git
+	branch = .
